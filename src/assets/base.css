@@ -1,0 +1,20 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --teal: teal;
+  --soft-brown: #fff8ec;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--teal);
+  background-color: var(--soft-brown);
+}
