@@ -1,7 +1,23 @@
-import { createApp } from "vue";
+import {createApp} from "vue";
 import App from "./App.vue";
 
 import "./assets/reset.css";
 import "./assets/base.css";
 
-createApp(App).mount("#app");
+/* import the fontawesome core */
+import {library} from "@fortawesome/fontawesome-svg-core";
+
+/* import font awesome icon component */
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+
+/* add icons to the library */
+import {
+    faClipboardList,
+    faSpinner,
+    faCircleCheck,
+    faFilter,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faClipboardList, faSpinner, faCircleCheck, faFilter);
+
+createApp(App).component("FontAwesomeIcon", FontAwesomeIcon).mount("#app");
