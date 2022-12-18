@@ -17,6 +17,7 @@ const todos = ref([
         priority: "Low",
         status: "Pending",
         showed: true,
+        id: 0,
     },
     {
         title: "Play games",
@@ -24,6 +25,7 @@ const todos = ref([
         priority: "High",
         status: "In Progress",
         showed: true,
+        id: 1,
     },
     {
         title: "Do exercises",
@@ -31,35 +33,7 @@ const todos = ref([
         priority: "Medium",
         status: "Done",
         showed: true,
-    },
-    {
-        title: "Shopping",
-        description: "roegnroieger",
-        priority: "High",
-        status: "Pending",
-        showed: true,
-    },
-    {
-        title: "Shopping",
-        description: "roegnroieger",
-        priority: "High",
-        status: "Pending",
-        showed: true,
-    },
-    {
-        title: "Shopping",
-        description: "roegnroieger",
-        priority: "High",
-        status: "Pending",
-        showed: true,
-    },
-    {
-        title: "Shopping",
-        description:
-            "roegnroiegergrwoigrugbouregboiurwgbowrugborwgboigbiowebgobgrlgjbrgubruogbiuogbuogbwuooewgbobgouwrbgorwbgorwigbirgiorwgoiwrgoibwriobgrbguobou",
-        priority: "High",
-        status: "Pending",
-        showed: true,
+        id: 2,
     },
 ]);
 
@@ -87,10 +61,24 @@ const handlePriorityChecked = (checkedPriority, s, e) => {
     }
 };
 
+const changeTodoStatus = (index) => {
+    if (todos.value[index].status === "Pending")
+        todos.value[index].status = "In Progress";
+    else if (todos.value[index].status === "In Progress")
+        todos.value[index].status = "Done";
+};
+
+const deleteTodo = (index) => {
+    todos.value.splice(index, 1);
+    todos.value.map((todo, index) => (todo.id = index));
+};
+
 provide("addTodo", addTodo);
 provide("todosList", todos);
 provide("todosStatus", todosStatus);
 provide("handlePriorityStatus", handlePriorityChecked);
+provide("changeTodoStatus", changeTodoStatus);
+provide("deleteTodo", deleteTodo);
 </script>
 
 <template>

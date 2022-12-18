@@ -16,8 +16,17 @@ import {
     faSpinner,
     faCircleCheck,
     faFilter,
+    faCircleRight,
+    faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faClipboardList, faSpinner, faCircleCheck, faFilter);
+library.add(
+    faClipboardList,
+    faSpinner,
+    faCircleCheck,
+    faFilter,
+    faCircleRight,
+    faTrash,
+);
 
 createApp(App).component("FontAwesomeIcon", FontAwesomeIcon).mount("#app");

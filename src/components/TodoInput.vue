@@ -1,15 +1,18 @@
 <script setup>
 import {ref, inject} from "vue";
 
+const todosList = inject("todosList");
+const addTodo = inject("addTodo");
+
 const todo = ref({
     title: "",
     description: "",
     priority: "Low",
     status: "Pending",
     showed: true,
+    id: todosList.value.length,
 });
 
-const addTodo = inject("addTodo");
 const clearInput = () =>
     (todo.value = {
         title: "",
@@ -17,6 +20,7 @@ const clearInput = () =>
         priority: "Low",
         status: "Pending",
         showed: true,
+        id: todosList.value.length,
     });
 </script>
 
@@ -25,11 +29,11 @@ const clearInput = () =>
         <section class="input-section">
             <div>
                 <label>Title: </label>
-                <input type="text" v-model="todo.title" required/>
+                <input type="text" v-model="todo.title" required />
             </div>
             <div>
                 <label>Description: </label>
-                <input type="text" v-model="todo.description" required/>
+                <input type="text" v-model="todo.description" required />
             </div>
         </section>
         <section class="select-section">

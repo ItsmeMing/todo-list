@@ -2,7 +2,7 @@
 <script setup>
 import {ref} from "vue";
 import Todo from "./Todo.vue";
-import PriorityStatus from "./PriorityStatus.vue";
+import PriorityFilter from "./PriorityFilter.vue";
 
 const priorityStatus = ref([
     {name: "Low", checked: true},
@@ -13,13 +13,13 @@ const props = defineProps(["todosListFiltered"]);
 </script>
 
 <template>
-    <PriorityStatus
+    <PriorityFilter
         :data="props.todosListFiltered"
         :priorityStatus="priorityStatus"
     />
     <ul class="todos__list">
         <li v-for="(todo, key) in todosListFiltered" :key="key">
-            <Todo :todo="todo" />
+            <Todo :todo="todo" :idx="key"/>
         </li>
     </ul>
 </template>

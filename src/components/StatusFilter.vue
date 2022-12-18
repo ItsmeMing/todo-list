@@ -34,12 +34,16 @@ const todosStatus = inject("todosStatus");
 .todos__filter {
     display: flex;
     gap: 15px;
+    color: var(--soft-brown);
     margin-bottom: 20px;
+    padding: 30px 15px;
+    background-color: var(--purple);
+    border-radius: 4px;
     .filter__heading,
     .filter__item {
         display: flex;
         gap: 5px;
-        font-size: 20px;
+        font-size: 18px;
         h1 {
             font-weight: 600;
         }
